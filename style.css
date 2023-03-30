@@ -19,8 +19,16 @@ header {
   padding: 10px 20px;
 }
 
+p{
+  margin-top: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  
+}
 .logo {
   font-size: 24px;
+  text-align: justify;
+  text-justify: auto;
   font-weight: bold;
 }
 
