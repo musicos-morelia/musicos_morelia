@@ -1,61 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Directorio</title>
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="logo">Músicos Morelia</div>
-      <nav>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="index.html">Directorio</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div class="wrapper">
-      <div id="search-container">
-        <input
-          type="search"
-          id="search-input"
-          placeholder="..."
-        />
-        <button id="search">Search</button>
-      </div>
-      <div id="buttons">
-        <button class="button-value" onclick="filterProduct('all')">All</button>
-        <button class="button-value" onclick="filterProduct('convocatoria')">
-          Convocatorias
-        </button>
-        <button class="button-value" onclick="filterProduct('noticias')">
-          Noticias
-        </button>
-        <button class="button-value" onclick="filterProduct('concierto')">
-          Conciertos
-        </button>
-        <button class="button-value" onclick="filterProduct('trabajo')">
-          Empleo
-        </button>
-      </div>
-      <div id="products"></div>
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Directorio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" type="text/css"/>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">Músicos Morelia</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="index.html">Directorio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><button id="btn-login" disabled="true" onclick="login()">Log in</button>
+          <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="..." />
+      <button id="search">Search</button>
     </div>
-    <section class="home-description">
-      <img
-        alt="image"
-        src="hero-divider-1500w.png"
-        class="home-divider-image"
-        ></img>
+    <div id="buttons">
+      <button class="button-value" onclick="filterProduct('all')">All</button>
+      <button class="button-value" onclick="filterProduct('convocatoria')">
+        Convocatorias
+      </button>
+      <button class="button-value" onclick="filterProduct('noticias')">
+        Noticias
+      </button>
+      <button class="button-value" onclick="filterProduct('concierto')">
+        Conciertos
+      </button>
+      <button class="button-value" onclick="filterProduct('trabajo')">
+        Empleo
+      </button>
+    </div>
+    <div id="products"></div>
+  </div>
+  <section class="home-description">
+    <img alt="image" src="/img/hero-divider-1500w.png" class="home-divider-image"></img>
+
+
+
+    <div class="hidden" id="gated-content">
+      <p>
+        You're seeing this content because you're currently
+        <strong>logged in</strong>.
+      </p>
+      <label>
+        Access token:
+        <pre id="ipt-access-token"></pre>
+      </label>
+      <label>
+        User profile:
+        <pre id="ipt-user-profile"></pre>
+      </label>
+    </div>
     <!-- Script -->
-    <script src="script.js"></script>
-  </body>
+    <script src="/js/script.js" type="text/javascript"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js" type="text/javascript"></script>
+    <script src="/js/app.js" type="text/javascript"></script>
+</body>
+
 </html>
