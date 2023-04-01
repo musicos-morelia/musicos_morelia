@@ -12,7 +12,9 @@ const configureClient = async () => {
     clientId: config.clientId
   });
 };
-
+var scripts = document.getElementsByTagName("script")
+     var src = scripts[scripts.length-1].src;
+    console.log(src)
 
 window.onload = async () => {
   await configureClient();
