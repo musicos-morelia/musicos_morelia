@@ -19,12 +19,11 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="home.html">Directorio</a></li>
+          <li><a class="hidden" href="home.html">Directorio</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="contacto.html">Contacto</a></li>
-          <li><button id="btn-login" disabled="true" onclick="login()">Log in</button>
-            <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
-          </li>
+          <li><button id="btn-login" disabled="true" onclick="login()">Log in</button></li>
+          <li class="hidden"><button id="btn-logout" disabled="true" onclick="logout()">Log out</button></li>
         </ul>
       </nav>
     </header>
@@ -36,12 +35,15 @@
           </p>
         </div>
         <div class="home-buttons">
-          <button class="button">Únete a la red!</button>
+          <button class="button" onclick=login()>Únete a la red!</button>
+          <a href="https://twitter.com/musicosmorelia" target="_blannk">
           <button class="home-learn button-clean button">
             Necesitas más información?
           </button>
+        </a>
         </div>
       </section>
+      <br><br><br> 
       <section class="home-description">
         <img
           alt="image"
@@ -50,7 +52,7 @@
           ></img>
         </section>
         <footer>
-            <div class="footer-container">
+            <!-- <div class="footer-container">
               <div class="footer-logo">Músicos Morelia</div>
               <nav class="footer-nav">
                 <ul>
@@ -60,7 +62,7 @@
                   <li><a href="#">Contact Us</a></li>
                 </ul>
               </nav>
-            </div>
+            </div> -->
           </footer>
     
 

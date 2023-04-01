@@ -7,6 +7,18 @@ label {
   display: block;
 }
 
+#btn-login:hover {
+  cursor: pointer;
+}
+
+#btn-logout:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -156,6 +168,11 @@ img {
 
 .hide {
   display: none;
+}
+
+.home-heading {
+  width: 70%;
+  margin: auto
 }
 
 .home-hero {

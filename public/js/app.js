@@ -76,7 +76,7 @@ const login = async () => {
 const logout = () => {
   auth0Client.logout({
     logoutParams: {
-      returnTo: window.location.origin
+      returnTo: 'http://localhost:3000/home.html'
     }
   });
 };

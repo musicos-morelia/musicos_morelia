@@ -4,7 +4,7 @@ fetch('json_data.json')
   .then(data => {
     // Use the parsed JSON data to create product cards
     for (let i of data) {
-      console.log(i)
+      // console.log(i)
       //Create Card
       let card = document.createElement("div");
       //Card should have category and should stay hidden initially
