@@ -13,8 +13,8 @@ const configureClient = async () => {
   });
 };
 var scripts = document.getElementsByTagName("script")
-     var src = scripts[scripts.length-1].src;
-    console.log(src)
+    var src = scripts[scripts.length-1].src;
+    var url = src.slice(0,-9)
 
 window.onload = async () => {
   await configureClient();
@@ -70,7 +70,7 @@ const updateUI = async () => {
 const login = async () => {
   await auth0Client.loginWithRedirect({
     authorizationParams: {
-      redirect_uri: 'http://localhost:3000/home.html'
+      redirect_uri: url+'home.html'
     }
   });
 };
@@ -78,7 +78,7 @@ const login = async () => {
 const logout = () => {
   auth0Client.logout({
     logoutParams: {
-      returnTo: 'http://localhost:3000/home.html'
+      returnTo: url+'home.html'
     }
   });
 };
