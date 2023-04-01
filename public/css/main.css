@@ -49,10 +49,20 @@ p {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   font-size: 24px;
   text-align: justify;
   text-justify: auto;
   font-weight: bold;
+  overflow: hidden;
+}
+
+.logo img{
+  width:7%;
+  margin-bottom: -1%;
+  margin-right: -1%;
+  filter: invert(1);
 }
 
 nav ul {

@@ -15,15 +15,5 @@ app.get("/*", (_, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
 
-// Serve the index page for all other requests
-app.get("/*", (_, res) => {
-  res.sendFile(join(__dirname, "/public/nosotros.html"));
-});
-
-// Serve the index page for all other requests
-app.get("/*", (_, res) => {
-  res.sendFile(join(__dirname, "/public/contacto.html"));
-});
-
 // Listen on port 3000
 app.listen(3000, () => console.log("Application running on port 3000"));

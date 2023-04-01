@@ -29,9 +29,6 @@ fetch('json_data.json')
     filterProduct("all");
   })
   .catch(error => console.error(error));
-  console.log(__dirname)
-
-
 /*
 for (let i of products.data) {
   //Create Card

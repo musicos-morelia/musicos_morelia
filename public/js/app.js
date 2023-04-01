@@ -1,7 +1,9 @@
 let auth0Client = null;
+let scripts = document.getElementsByTagName("script")
+let src = scripts[scripts.length - 1].src;
+let url = src.slice(0, -9)
 
 const fetchAuthConfig = () => fetch("/auth_config.json");
-
 
 const configureClient = async () => {
   const response = await fetchAuthConfig();
@@ -12,9 +14,6 @@ const configureClient = async () => {
     clientId: config.clientId
   });
 };
-var scripts = document.getElementsByTagName("script")
-    var src = scripts[scripts.length-1].src;
-    var url = src.slice(0,-9)
 
 window.onload = async () => {
   await configureClient();
@@ -24,7 +23,7 @@ window.onload = async () => {
   const isAuthenticated = await auth0Client.isAuthenticated();
 
   if (isAuthenticated) {
-    // show the gated content
+
     return;
   }
 
@@ -34,7 +33,7 @@ window.onload = async () => {
 
     // Process the login state
     await auth0Client.handleRedirectCallback();
-    
+
     updateUI();
 
     // Use replaceState to redirect the user away and remove the querystring parameters
@@ -48,11 +47,9 @@ const updateUI = async () => {
 
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;
-  
+
   // NEW - add logic to show/hide gated content after authentication
   if (isAuthenticated) {
-    document.getElementById("gated-content").classList.remove("hidden");
-
     document.getElementById(
       "ipt-access-token"
     ).innerHTML = await auth0Client.getTokenSilently();
@@ -61,8 +58,14 @@ const updateUI = async () => {
       await auth0Client.getUser()
     );
 
-  } else {
-    document.getElementById("gated-content").classList.add("hidden");
+    document.getElementById("btn-logout").classList.remove("hidden");
+    document.getElementById("btn-login").classList.add("hidden");
+    document.getElementById("menuitem").classList.remove("hidden");
+
+  } else if (!isAuthenticated){
+    document.getElementById("btn-logout").classList.add("hidden");
+    document.getElementById("btn-login").classList.remove("hidden");
+    document.getElementById("menuitem").classList.add("hidden");
   }
 };
 
@@ -70,7 +73,7 @@ const updateUI = async () => {
 const login = async () => {
   await auth0Client.loginWithRedirect({
     authorizationParams: {
-      redirect_uri: url+'home.html'
+      redirect_uri: url + 'home.html'
     }
   });
 };
@@ -78,7 +81,7 @@ const login = async () => {
 const logout = () => {
   auth0Client.logout({
     logoutParams: {
-      returnTo: url+'home.html'
+      returnTo: url + 'home.html'
     }
   });
 };
