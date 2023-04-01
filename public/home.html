@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Músicos Morelia</title>
-    <link rel = "icon" href = "logo.jpeg" 
-        type = "image/x-icon">
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="/css/main.css" />
-  </head>
-  <body>
-    <header>
-      <div class="logo">Músicos Morelia</div>
-      <nav>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="index.html">Directorio</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section class="home-hero">
-        <div class="home-heading">
-          <h1 class="home-header">Músicos Morelia</h1>
-          <p class="home-caption">
-            Una página dedicada al apoyo entre artistas!
-          </p>
-        </div>
-        <div class="home-buttons">
-          <button class="button">Únete a la red!</button>
-          <button class="home-learn button-clean button">
-            Necesitas más información?
-          </button>
-        </div>
-      </section>
-      <section class="home-description">
-        <img
-          alt="image"
-          src="/img/hero-divider-1500w.png"
-          class="home-divider-image"
-          ></img>
-        </section>
-        <footer>
-            <div class="footer-container">
-              <div class="footer-logo">Músicos Morelia</div>
-              <nav class="footer-nav">
-                <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Directorio</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </nav>
-            </div>
-          </footer>
-    
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Directorio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" type="text/css"/>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
 
+<body>
+  <header>
+    <div class="logo">Músicos Morelia</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="home.html">Directorio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="..." />
+      <button id="search">Search</button>
+    </div>
+    <div id="buttons">
+      <button class="button-value" onclick="filterProduct('all')">All</button>
+      <button class="button-value" onclick="filterProduct('convocatoria')">
+        Convocatorias
+      </button>
+      <button class="button-value" onclick="filterProduct('noticias')">
+        Noticias
+      </button>
+      <button class="button-value" onclick="filterProduct('concierto')">
+        Conciertos
+      </button>
+      <button class="button-value" onclick="filterProduct('trabajo')">
+        Empleo
+      </button>
+    </div>
+    <div id="products"></div>
+  </div>
+  <section class="home-description">
+    <img alt="image" src="/img/hero-divider-1500w.png" class="home-divider-image"></img>
+
+
+
+    <div class="hidden" id="gated-content">
+      <p>
+        You're seeing this content because you're currently
+        <strong>logged in</strong>.
+      </p>
+      <label>
+        Access token:
+        <pre id="ipt-access-token"></pre>
+      </label>
+      <label>
+        User profile:
+        <pre id="ipt-user-profile"></pre>
+      </label>
+    </div>
     <!-- Script -->
-    <script src="script.js"></script>
-  </body>
+    <script src="/js/script.js" type="text/javascript"></script>
+</body>
+
 </html>
