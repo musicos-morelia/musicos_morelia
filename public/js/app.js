@@ -16,6 +16,7 @@ const configureClient = async () => {
 };
 
 window.onload = async () => {
+  console.log(url)
   await configureClient();
 
   updateUI();
@@ -48,6 +49,7 @@ const updateUI = async () => {
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;
 
+  console.log(isAuthenticated)
   // NEW - add logic to show/hide gated content after authentication
   if (isAuthenticated) {
     document.getElementById(
@@ -61,6 +63,8 @@ const updateUI = async () => {
     document.getElementById("btn-logout").classList.remove("hidden");
     document.getElementById("btn-login").classList.add("hidden");
     document.getElementById("menuitem").classList.remove("hidden");
+    document.getElementById("gated-content").classList.remove("hidden");
+
 
   } else if (!isAuthenticated){
     document.getElementById("btn-logout").classList.add("hidden");
@@ -81,7 +85,8 @@ const login = async () => {
 const logout = () => {
   auth0Client.logout({
     logoutParams: {
-      returnTo: url + 'home.html'
+      returnTo: url
     }
   });
 };
+
